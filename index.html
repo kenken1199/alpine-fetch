@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>mebeeサンプル</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
+</head>
+
+<body class="sans-serif bg-gray-200">
+
+    <div class="container mx-auto px-4" x-data="{ post:[]}" x-init="
+                fetch('https://jsonplaceholder.typicode.com/posts/1')
+                    .then(response => response.json())
+                    .then(data => post = data)
+            ">
+        <p class="flex items-center text-center justify-center h-screen text-2xl" x-text="post.body"></p>
+    </div>
+</body>
+
+</html>
